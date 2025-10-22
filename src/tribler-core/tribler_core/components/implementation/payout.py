@@ -1,6 +1,3 @@
-from ipv8.dht.routing import RoutingTable
-from ipv8.messaging.interfaces.udp.endpoint import UDPv4Address
-
 from tribler_common.simpledefs import NTFY
 
 from tribler_core.components.interfaces.bandwidth_accounting import BandwidthAccountingComponent
@@ -14,7 +11,7 @@ INFINITE = -1
 
 class PayoutComponentImp(PayoutComponent):
     async def run(self):
-        await self.use(ReporterComponent)
+        await self.use(ReporterComponent, required=False)
 
         config = self.session.config
 
